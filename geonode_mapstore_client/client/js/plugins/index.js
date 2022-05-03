@@ -16,7 +16,9 @@ import {
     LayerDownloadActionButton,
     AnnotationsActionButton,
     FullScreenActionButton,
-    FilterLayerActionButton
+    FilterLayerActionButton,
+    PrintScreenActionButton,
+    RoutingActionButton
 } from '@js/plugins/actionnavbar/buttons';
 import { getMetadataUrl,
     getMetadataDetailUrl,
@@ -427,6 +429,30 @@ export const plugins = {
     SyncPlugin: toLazyPlugin(
         'Sync',
         () => import(/* webpackChunkName: 'plugins/sync-plugin' */ '@js/plugins/Sync')
+    ),
+    PrintScreenPlugin: toLazyPlugin(
+        'PrintScreen',
+        () => import(/* webpackChunkName: 'plugins/print-screen-plugin' */ '@js/plugins/PrintScreen'),
+        {
+            containers: {
+                ActionNavbar: {
+                    name: 'PrintScreen',
+                    Component: PrintScreenActionButton
+                }
+            }
+        }
+    ),
+    RoutingPlugin: toLazyPlugin(
+        'Routing',
+        () => import(/* webpackChunkName: 'plugins/routing-plugin' */ '@js/plugins/Routing'),
+        {
+            containers: {
+                ActionNavbar: {
+                    name: 'Routing',
+                    Component: RoutingActionButton
+                }
+            }
+        }
     )
 };
 

@@ -172,3 +172,41 @@ export const AnnotationsActionButton = connect(
         </Button>
     );
 });
+
+export const PrintScreenActionButton = connect(
+    () => ({}),
+    { onClick: setControlProperty.bind(null, 'prtsc', 'enabled', true) }
+)(({
+    onClick,
+    variant,
+    size
+}) => {
+    return (
+        <Button
+            variant={variant}
+            size={size}
+            onClick={() => onClick()}
+        >
+            <Message msgId="printScreenComponent.PrintScreen" />
+        </Button>
+    );
+});
+
+export const RoutingActionButton = connect(
+    () => ({}),
+    { onClick: setControlProperty.bind(null, 'routing', 'enabled', true) }
+)(({
+    onClick,
+    variant,
+    size
+}) => {
+    return (
+        <Button
+            variant={variant}
+            size={size}
+            onClick={() => onClick()}
+        >
+            <Message msgId="routingComponent.Routing" />
+        </Button>
+    );
+});
